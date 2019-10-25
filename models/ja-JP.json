@@ -1,0 +1,561 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "ビルダーの レシピ集",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "ヘルプ",
+                        "使い方を教えて"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "もういいよ",
+                        "終わり",
+                        "閉じて",
+                        "止めて"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "RoomIntent",
+                    "slots": [
+                        {
+                            "name": "room",
+                            "type": "Room"
+                        }
+                    ],
+                    "samples": [
+                        "{room}",
+                        "{room} のレシピを調べて",
+                        "{room} の作り方を調べて",
+                        "{room} のレシピを教えて",
+                        "{room} の作り方を教えて"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "Room",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "わらの寝室",
+                                "synonyms": [
+                                    "藁の寝室"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "わらの宿屋",
+                                "synonyms": [
+                                    "藁の宿屋"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "わらホテル",
+                                "synonyms": [
+                                    "藁ホテル"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ベッドの寝屋"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ベッドの宿屋"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ベッドホテル"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "あらくれの寝室",
+                                "synonyms": [
+                                    "荒くれの寝室"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "あらくれの宿屋",
+                                "synonyms": [
+                                    "荒くれの宿屋"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ホテルあらくれ",
+                                "synonyms": [
+                                    "ホテル荒くれ"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "たき火の台所",
+                                "synonyms": [
+                                    "焚き火の台所"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ごはんどころ",
+                                "synonyms": [
+                                    "ご飯どころ",
+                                    "ご飯処",
+                                    "御飯処"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "レンガキッチン"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "レンガレストラン"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "石づくりの食堂",
+                                "synonyms": [
+                                    "石造りの食堂"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "森と木のカフェ"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Barあらくれ",
+                                "synonyms": [
+                                    "バーあらくれ",
+                                    "バー荒くれ"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "院内食堂"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "衣装部屋"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "武器と衣装の部屋"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "仕立て更衣室"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "湯の部屋"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "マイラ温泉"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "あらくれ温泉",
+                                "synonyms": [
+                                    "荒くれ温泉"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "まじんSpaあらくれ",
+                                "synonyms": [
+                                    "魔神スパあらくれ",
+                                    "魔神スパ荒くれ"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "石の工房"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "木の工房"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "鉄の工房"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "石の本格工房"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "木の本格工房"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "鉄の本格工房"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "石と炉の工房"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "鉄と炉の工房"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "石と炉の本格工房"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "鉄と炉の本格工房"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "薬局"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "超薬研究所"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "マシン工房"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "はじめての個室",
+                                "synonyms": [
+                                    "初めての個室"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ちょっとした個室"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "リッチな個室"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "あらくれ個室",
+                                "synonyms": [
+                                    "荒くれ個室"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "はじめての2人部屋",
+                                "synonyms": [
+                                    "初めての二人部屋"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ちょっとした2人部屋",
+                                "synonyms": [
+                                    "ちょっとした二人部屋"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "リッチな2人部屋",
+                                "synonyms": [
+                                    "リッチな二人部屋"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "あらくれ2人部屋",
+                                "synonyms": [
+                                    "荒くれ二人部屋"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "石の庭園"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "森の庭園"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "花の庭園"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "砂漠の庭園"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ジャングル庭園"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "水の庭園"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "草のはえた部屋",
+                                "synonyms": [
+                                    "草の生えた部屋"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "花のさいている部屋",
+                                "synonyms": [
+                                    "花の咲いている部屋"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "魔物の庭園"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "病室"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "大きな病室"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "博物ルーム"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "図書ルーム"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ファイアルーム"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "リビングルーム"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "おもちゃルーム",
+                                "synonyms": [
+                                    "玩具ルーム",
+                                    "オモチャルーム"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "墓所"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "バスルーム"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ツボだらけの部屋",
+                                "synonyms": [
+                                    "壺だらけの部屋",
+                                    "壷だらけの部屋"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "キノコだらけの部屋"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ごうもん室",
+                                "synonyms": [
+                                    "拷問室"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "竜王の間",
+                                "synonyms": [
+                                    "龍王の間"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "すぐに壊れる部屋"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "宝箱の間"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "3つの宝箱の間",
+                                "synonyms": [
+                                    "三つの宝箱の間"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "宝物庫"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "屋内農場"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "水飲み場"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "水汲み室"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "占いの間"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "教会"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "王座の間"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "お姫さまの寝室"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "たびのほこら",
+                                "synonyms": [
+                                    "旅のほこら",
+                                    "旅の祠"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ふたまたのほこら",
+                                "synonyms": [
+                                    "ふたまたの祠",
+                                    "二股のほこら",
+                                    "二股の祠"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "みつまたのほこら",
+                                "synonyms": [
+                                    "みつまたの祠",
+                                    "三叉のほこら",
+                                    "三叉の祠"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "メルキドガーデン"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
