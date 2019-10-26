@@ -1,6 +1,4 @@
-dqb-recipe-alexa
-
-===
+# dqb-recipe-alexa
 
 **Note:** support only Japanese version
 
