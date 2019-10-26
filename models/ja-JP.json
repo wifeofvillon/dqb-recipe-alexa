@@ -1,11 +1,14 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "ビルダーの レシピ集",
+            "invocationName": "ビルダーズワンの レシピ集",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
-                    "samples": []
+                    "samples": [
+                        "キャンセル",
+                        "間違えた"
+                    ]
                 },
                 {
                     "name": "AMAZON.HelpIntent",
