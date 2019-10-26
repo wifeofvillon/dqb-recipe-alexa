@@ -4,11 +4,26 @@
 const Alexa = require('ask-sdk-core');
 const Room = require('./json/Room.json');
 
+// status code
+// TODO: find in ask-sdk-core
 const errorStrNotFound = "NOT_FOUND";
 const successStrMatch = "ER_SUCCESS_MATCH";
-const outputError = "すみません、わかりませんでした。";
-const speakOutputNotFound = "のレシピを見つけられませんでした。";
 
+// speakOutput
+const speakOutputNotFound = "のレシピを見つけられませんでした。";
+const speakOutputFailedListen = "すみません、わかりませんでした。";
+const speakOutputError = `${speakOutputFailedListen}もう一度試してみてください。`;
+const speakOutputLaunch = "ドラゴンクエストビルダーズのビルダーのしょを開きました。どの部屋のレシピを知りたいですか？";
+const speakOutputHelp = "レシピを知りたい部屋の名前を教えてください。必要なアイテムの種類と数をお知らせします。";
+
+/**
+ * Room.jsonに部屋レシピが存在するか確認する
+ *
+ * @param {String} inputRoomName 部屋の名前
+ * @return {Array}
+ * @return {Boolean} return[0] - レシピの存在確認
+ * @return {Number} return[1] - レシピが存在する行
+ */
 function checkRoomName(inputRoomName) {
     for (let key in Room) {
         if (inputRoomName === Room[key]["room"]) {
@@ -18,6 +33,13 @@ function checkRoomName(inputRoomName) {
     return [false, 0];
 }
 
+/**
+ * 部屋の名前から部屋レシピを探す
+ *
+ * @param {String} resolutionRoomName 解決済みの部屋の名前
+ * @param {Number} key 部屋レシピが存在する行(checkRoomNameで取得できる)
+ * @return {String} recipe Room[]['recipe']
+ */
 function getRecipeByName(resolutionRoomName, key) {
     if (resolutionRoomName === Room[key]['room']) {
         return Room[key]['recipe'];
@@ -34,7 +56,7 @@ const LaunchRequestHandler = {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speakOutput = 'ドラゴンクエストビルダーズのビルダーのしょを開きました。どの部屋のレシピを知りたいですか？';
+        const speakOutput = speakOutputLaunch;
         return handlerInput.responseBuilder
             .speak(speakOutput)
             .reprompt(speakOutput)
@@ -47,29 +69,35 @@ const RoomIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'RoomIntent';
     },
     handle(handlerInput) {
-        let speakOutput = outputError;
+        let speakOutput;
 
         try {
+            // STTの揺れが多いのでgetSlotValueを使わずにvalueを取得する
             const roomSlot = Alexa.getSlot(handlerInput.requestEnvelope, 'room');
             const roomValue = roomSlot['value'];
             const resolution = roomSlot['resolutions']['resolutionsPerAuthority'][0];
             const resolutionStatusCode = resolution['status']['code'];
 
             if (resolutionStatusCode === successStrMatch) {
+                // 部屋名を解決できた場合
                 const resolutionRoomName = resolution['values'][0]['value']['name'];
                 let isRoomExist = checkRoomName(resolutionRoomName);
                 speakOutput = `${resolutionRoomName}`;
 
                 if (isRoomExist[0]) {
+                    // 部屋レシピの存在が確認できた場合
                     const recipe = getRecipeByName(resolutionRoomName, isRoomExist[1]);
                     if (recipe !== errorStrNotFound) speakOutput = `${speakOutput}のレシピは次の通りです。\n${recipe}`;
                 } else {
+                    // 部屋レシピの存在が確認できなかった場合
                     speakOutput = `${speakOutput}${speakOutputNotFound}`;
                 }
             } else {
+                // 部屋名を解決できなかった場合
                 speakOutput = `${roomValue}${speakOutputNotFound}`;
             }
         } catch (error) {
+            speakOutput = speakOutputError;
             console.error(error);
         }
         return handlerInput.responseBuilder
@@ -83,7 +111,7 @@ const HelpIntentHandler = {
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
-        const speakOutput = 'You can say hello to me! How can I help?';
+        const speakOutput = speakOutputHelp;
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
@@ -142,7 +170,7 @@ const ErrorHandler = {
     },
     handle(handlerInput, error) {
         console.log(`~~~~ Error handled: ${error.stack}`);
-        const speakOutput = `Sorry, I had trouble doing what you asked. Please try again.`;
+        const speakOutput = speakOutputError;
 
         return handlerInput.responseBuilder
             .speak(speakOutput)
