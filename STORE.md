@@ -8,7 +8,8 @@
 - What's new?:
 - Example Phrases:
   1. `アレクサ、ビルダーズワンのレシピ集を開いて`
-  2. `アレクサ、ビルダーズワンのレシピ集を開いて、ホテルあらくれのレシピを教えて`
+  2. `ホテルあらくれのレシピを教えて`
+  3. `アレクサ、ビルダーズワンのレシピ集を開いて、ホテルあらくれのレシピを教えて`
 - Keywords: `ドラクエ, dqb, ビルダーズ, ゲーム, 攻略, ドラゴンクエストビルダーズ`
 - Privacy Policy URL: `https://github.com/wifeofvillon/dqb-recipe-alexa/blob/master/PRIVACY_POLICY.md`
 - Terms of Use URL: `https://github.com/wifeofvillon/dqb-recipe-alexa/blob/master/PRIVACY_POLICY.md`
